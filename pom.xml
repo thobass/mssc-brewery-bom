@@ -43,9 +43,7 @@
         <jaxb.version>4.0.0</jaxb.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
         <awaitility.version>4.2.0</awaitility.version>
-        <cleanplugin.version>3.2.0</cleanplugin.version>
         <lombokmapstructbinding.version>0.2.0</lombokmapstructbinding.version>
-        <enforcerplugin.version>3.1.0</enforcerplugin.version>
     </properties>
 
     <dependencyManagement>
@@ -136,9 +134,7 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>${cleanplugin.version}</version>
                 <executions>
                     <execution>
                         <id>auto-clean</id>
@@ -152,7 +148,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
                 <configuration>
                     <annotationProcessorPaths>
                         <path>
@@ -179,7 +174,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>${enforcerplugin.version}</version>
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
@@ -188,7 +182,9 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <requiredMavenVersion>[3.6.0,)</requiredMavenVersion>
+                                <requireMavenVersion>
+                                    <version>[3.6.0,)</version>
+                                </requireMavenVersion>
                                 <requireJavaVersion>
                                     <version>11</version>
                                 </requireJavaVersion>
